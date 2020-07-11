@@ -157,9 +157,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 10.0),
-                        child: Container(
-                          height: screenHeight * 0.08,
-                          color: Colors.pink,
+                        child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Container(
+                            height: screenHeight * 0.08,
+                            color: Colors.pink,
+                          ),
                         ),
                       ),
                     ],
@@ -199,6 +202,10 @@ class LocationText extends StatelessWidget {
       padding: const EdgeInsets.only(top: 10.0),
       child: Row(
         children: [
+          Icon(
+            Icons.location_on,
+            size: 20.0,
+          ),
           Text(snapshot.data, style: TextStyle(fontSize: 14.0, color: kGreyDark, fontWeight: FontWeight.w600)),
           InkWell(
             onTap: () {},
