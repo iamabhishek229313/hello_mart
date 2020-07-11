@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:geocoder/geocoder.dart';
 import 'package:hello_mart/screens/product_details/product_details.dart';
+import 'package:hello_mart/screens/service_providers_screen/service_providers_Screen.dart';
 import 'package:hello_mart/utils/const_colors.dart';
 import 'package:hello_mart/utils/const_image_data.dart';
 import 'package:location/location.dart';
@@ -118,7 +119,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (_) => ProductDetails(
+                                      builder: (_) => ServiceProvidersScreen(
                                             serviceName: gridItems[index].title,
                                           )));
                             },

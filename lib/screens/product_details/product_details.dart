@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hello_mart/bloc/app_state_bloc.dart';
@@ -5,9 +7,9 @@ import 'package:hello_mart/screens/profile_screen/profile_screen.dart';
 import 'package:hello_mart/utils/const_colors.dart';
 
 class ProductDetails extends StatefulWidget {
-  final String serviceName;
+  final String serviceProviderName;
 
-  const ProductDetails({Key key, this.serviceName}) : super(key: key);
+  const ProductDetails({Key key, this.serviceProviderName}) : super(key: key);
 
   @override
   _ProductDetailsState createState() => _ProductDetailsState();
@@ -24,38 +26,63 @@ class _ProductDetailsState extends State<ProductDetails> with TickerProviderStat
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 6, vsync: this);
   }
 
   @override
   Widget build(BuildContext context) {
     final double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0.0,
+        leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+            ),
+            onPressed: () => Navigator.pop(context)),
+      ),
       body: Column(
         children: [
           Expanded(
             child: Column(
               children: [
+                // Container(
+                //   height: screenHeight * 0.04,
+                //   child: Align(
+                //     alignment: Alignment.centerLeft,
+                //     child: InkWell(
+                //       onTap: () {
+                //         BlocProvider.of<AppStateBloc>(context).add(ChangeScreen(0));
+                //       },
+                //       child: Icon(
+                //         Icons.arrow_back,
+                //         size: 30.0,
+                //       ),
+                //     ),
+                //   ),
+                // ),
                 Container(
-                  height: screenHeight * 0.04,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 8.0,
+                  ),
                   child: Align(
                     alignment: Alignment.centerLeft,
-                    child: InkWell(
-                      onTap: () {
-                        BlocProvider.of<AppStateBloc>(context).add(ChangeScreen(0));
-                      },
-                      child: Icon(
-                        Icons.arrow_back,
-                        size: 30.0,
-                      ),
+                    child: Text(
+                      widget.serviceProviderName,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(fontWeight: FontWeight.bold, color: kGreyDark, fontSize: 28.0),
                     ),
                   ),
                 ),
+
                 Container(
                   margin: const EdgeInsets.symmetric(
                     vertical: 8.0,
                   ),
+                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
                   height: screenHeight * 0.06,
                   child: TextField(
                     controller: _searchProductsController,
@@ -87,7 +114,142 @@ class _ProductDetailsState extends State<ProductDetails> with TickerProviderStat
                 ),
                 TabBar(
                     controller: _tabController,
-                    tabs: ["VEGETABLES", "FRUITS", "DESERTS"].map((e) => Tab(text: e)).toList())
+                    isScrollable: true,
+                    indicatorWeight: 3.0,
+                    indicatorColor: kPrimaryDark,
+                    tabs: ["VEGETABLES", "FRUITS", "DESERTS", "VEGETABLES", "FRUITS", "DESERTS"]
+                        .map((e) => Tab(
+                                child: Text(
+                              e,
+                              style: TextStyle(color: kGreyDark, fontSize: 15.0, fontWeight: FontWeight.w500),
+                            )))
+                        .toList()),
+                Expanded(
+                    child: TabBarView(controller: _tabController, children: [
+                  Container(
+                    child: Stack(
+                      children: [
+                        ListView.builder(
+                            itemCount: 10,
+                            physics: BouncingScrollPhysics(),
+                            itemBuilder: (BuildContext context, int index) {
+                              return Container(
+                                height: screenHeight * 0.12,
+                                margin: const EdgeInsets.only(top: 10.0, left: 8.0, right: 8.0),
+                                child: Material(
+                                  elevation: 5.0,
+                                  shadowColor: Colors.grey.shade50,
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Expanded(
+                                        child: Row(
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius: BorderRadius.circular(5.0),
+                                              child: Container(
+                                                height: screenHeight * 0.12,
+                                                width: screenHeight * 0.12,
+                                                decoration: BoxDecoration(
+                                                  borderRadius: BorderRadius.circular(5.0),
+                                                  color: Colors.indigo,
+                                                ),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: MediaQuery.of(context).size.width * 0.1,
+                                            ),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                              children: [
+                                                Text(
+                                                  "Asus Laptop",
+                                                  maxLines: 2,
+                                                  overflow: TextOverflow.ellipsis,
+                                                  style: TextStyle(
+                                                      color: kGreyDark, fontSize: 18.0, fontWeight: FontWeight.w500),
+                                                ),
+                                                Text(
+                                                  "₹" + 999.toString(),
+                                                  maxLines: 1,
+                                                  style: TextStyle(
+                                                      color: kGreyDark, fontSize: 18.0, fontWeight: FontWeight.w500),
+                                                ),
+                                                Text(
+                                                  1.toString() + " Kg",
+                                                  maxLines: 1,
+                                                  style: TextStyle(
+                                                      color: kPrimaryGrey, fontSize: 17.0, fontWeight: FontWeight.w400),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Container(
+                                        width: MediaQuery.of(context).size.width * 0.3,
+                                        margin: const EdgeInsets.only(top: 10.0),
+                                        padding: const EdgeInsets.symmetric(vertical: 4.0),
+                                        decoration:
+                                            BoxDecoration(color: kGreyDark, borderRadius: BorderRadius.circular(20.0)),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            InkWell(
+                                              onTap: () {},
+                                              child: Icon(
+                                                Icons.minimize,
+                                                color: kPrimaryDark,
+                                              ),
+                                            ),
+                                            Text("Add"),
+                                            InkWell(
+                                              onTap: () {},
+                                              child: Icon(
+                                                Icons.minimize,
+                                                color: kPrimaryDark,
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              );
+                            }),
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Container(
+                            height: screenHeight * 0.05,
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                    colors: [Colors.white10, Colors.white54],
+                                    stops: [0.0, 1.0],
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter)),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Container(
+                    color: Colors.pinkAccent,
+                  ),
+                  Container(
+                    color: Colors.indigo,
+                  ),
+                  Container(
+                    color: Colors.orangeAccent,
+                  ),
+                  Container(
+                    color: Colors.pinkAccent,
+                  ),
+                  Container(
+                    color: Colors.indigo,
+                  ),
+                ]))
               ],
             ),
           ),
