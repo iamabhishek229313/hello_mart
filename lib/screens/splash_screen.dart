@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hello_mart/screens/home_screen.dart';
+import 'package:hello_mart/screens/state_wrapper.dart';
 import 'package:hello_mart/utils/const_colors.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -13,7 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Future.delayed(Duration(milliseconds: 3000), () {
       Navigator.pop(context);
-      Navigator.push(context, MaterialPageRoute(builder: (_) => HomeScreen()));
+      Navigator.push(context, MaterialPageRoute(builder: (_) => StateWrapper()));
     });
   }
 

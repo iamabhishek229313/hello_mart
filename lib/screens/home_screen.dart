@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:geocoder/geocoder.dart';
+import 'package:hello_mart/screens/product_details/product_details.dart';
 import 'package:hello_mart/utils/const_colors.dart';
 import 'package:hello_mart/utils/const_image_data.dart';
 import 'package:location/location.dart';
@@ -44,130 +45,122 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final double screenHeight = MediaQuery.of(context).size.height;
-    final double topPadding = MediaQuery.of(context).padding.top;
     return Scaffold(
       body: SafeArea(
         child: FutureBuilder(
             future: _loadLocation(),
             builder: (BuildContext context, snapshot) {
               if (!snapshot.hasData) return _loadingState();
-              return SingleChildScrollView(
-                child: Container(
-                  height: screenHeight - topPadding,
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 10.0),
-                        child: Column(
-                          children: [
-                            LocationText(
-                              snapshot: snapshot,
-                            ),
-                            Container(
-                                height: screenHeight * 0.2,
-                                margin: const EdgeInsets.symmetric(vertical: 10.0),
-                                decoration:
-                                    BoxDecoration(borderRadius: BorderRadius.circular(10.0), color: Colors.grey)),
-                            Container(
-                              margin: const EdgeInsets.symmetric(
-                                vertical: 8.0,
-                              ),
-                              height: screenHeight * 0.06,
-                              child: TextField(
-                                controller: _searchController,
-                                cursorColor: kPrimaryGrey,
-                                style: TextStyle(
-                                  color: kGreyDark,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 16.0,
-                                ),
-                                decoration: InputDecoration(
-                                    hintText: 'Search for products',
-                                    focusedBorder: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(30.0),
-                                        borderSide: BorderSide(
-                                          color: kPrimaryDark,
-                                          width: 1.2,
-                                        )),
-                                    prefixIcon: Icon(
-                                      Icons.search,
-                                      color: kPrimaryGrey,
-                                    ),
-                                    border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(30.0),
-                                        borderSide: BorderSide(
-                                          color: kPrimaryGrey,
-                                          width: 1.1,
-                                        ))),
-                              ),
-                            ),
-                            Container(
-                                height: screenHeight * 0.12,
-                                decoration:
-                                    BoxDecoration(borderRadius: BorderRadius.circular(10.0), color: Colors.grey)),
-                          ],
+              return Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10.0),
+                    child: Column(
+                      children: [
+                        LocationText(
+                          snapshot: snapshot,
                         ),
-                      ),
-                      SizedBox(
-                        height: screenHeight * 0.006,
-                      ),
-                      Expanded(
-                        child: GridView.builder(
-                            itemCount: gridItems.length,
-                            scrollDirection: Axis.horizontal,
-                            physics: BouncingScrollPhysics(),
-                            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
-                            itemBuilder: (BuildContext context, int index) {
-                              return Container(
-                                //color: Colors.primaries[Random().nextInt(12)],
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Material(
-                                      elevation: 8.0,
-                                      shadowColor: Colors.grey.shade200,
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      child: Container(
-                                        padding: EdgeInsets.all(screenHeight * 0.02),
-                                        height: screenHeight * 0.09,
-                                        width: screenHeight * 0.09,
-                                        decoration:
-                                            BoxDecoration(color: kGreyDark, borderRadius: BorderRadius.circular(10.0)),
-                                        child: Image.asset(
-                                          gridItems[index].imageUrl,
-                                          color: kPrimaryDark,
-                                          fit: BoxFit.scaleDown,
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: screenHeight * 0.01,
-                                    ),
-                                    Text(
-                                      gridItems[index].title,
-                                      maxLines: 2,
-                                      overflow: TextOverflow.ellipsis,
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(fontWeight: FontWeight.bold, color: kGreyDark),
-                                    )
-                                  ],
+                        Container(
+                            height: screenHeight * 0.2,
+                            margin: const EdgeInsets.symmetric(vertical: 10.0),
+                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), color: Colors.grey)),
+                        Container(
+                          margin: const EdgeInsets.symmetric(
+                            vertical: 8.0,
+                          ),
+                          height: screenHeight * 0.06,
+                          child: TextField(
+                            controller: _searchController,
+                            cursorColor: kPrimaryGrey,
+                            style: TextStyle(
+                              color: kGreyDark,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16.0,
+                            ),
+                            decoration: InputDecoration(
+                                hintText: 'Search for products',
+                                focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(30.0),
+                                    borderSide: BorderSide(
+                                      color: kPrimaryDark,
+                                      width: 1.2,
+                                    )),
+                                prefixIcon: Icon(
+                                  Icons.search,
+                                  color: kPrimaryGrey,
                                 ),
-                              );
-                            }),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 10.0),
-                        child: Align(
-                          alignment: Alignment.bottomCenter,
-                          child: Container(
-                            height: screenHeight * 0.08,
-                            color: Colors.pink,
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(30.0),
+                                    borderSide: BorderSide(
+                                      color: kPrimaryGrey,
+                                      width: 1.1,
+                                    ))),
                           ),
                         ),
-                      ),
-                    ],
+                        Container(
+                            height: screenHeight * 0.12,
+                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), color: Colors.grey)),
+                      ],
+                    ),
                   ),
-                ),
+                  SizedBox(
+                    height: screenHeight * 0.006,
+                  ),
+                  Expanded(
+                    child: GridView.builder(
+                        itemCount: gridItems.length,
+                        scrollDirection: Axis.horizontal,
+                        physics: BouncingScrollPhysics(),
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+                        itemBuilder: (BuildContext context, int index) {
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (_) => ProductDetails(
+                                            serviceName: gridItems[index].title,
+                                          )));
+                            },
+                            child: Container(
+                              //color: Colors.primaries[Random().nextInt(12)],
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Material(
+                                    elevation: 8.0,
+                                    shadowColor: Colors.grey.shade200,
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    child: Container(
+                                      padding: EdgeInsets.all(screenHeight * 0.02),
+                                      height: screenHeight * 0.09,
+                                      width: screenHeight * 0.09,
+                                      decoration:
+                                          BoxDecoration(color: kGreyDark, borderRadius: BorderRadius.circular(10.0)),
+                                      child: Image.asset(
+                                        gridItems[index].imageUrl,
+                                        color: kPrimaryDark,
+                                        fit: BoxFit.scaleDown,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: screenHeight * 0.01,
+                                  ),
+                                  Text(
+                                    gridItems[index].title,
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(fontWeight: FontWeight.bold, color: kGreyDark),
+                                  )
+                                ],
+                              ),
+                            ),
+                          );
+                        }),
+                  ),
+                ],
               );
             }),
       ),
