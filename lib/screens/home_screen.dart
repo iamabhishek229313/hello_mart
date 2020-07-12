@@ -4,8 +4,22 @@ import 'package:flutter/material.dart';
 import 'package:geocoder/geocoder.dart';
 import 'package:hello_mart/screens/product_details/product_details.dart';
 import 'package:hello_mart/screens/service_providers_screen/service_providers_Screen.dart';
+import 'package:hello_mart/services_screen/bakery.dart';
+import 'package:hello_mart/services_screen/car_wash.dart';
+import 'package:hello_mart/services_screen/dry_fruits.dart';
+import 'package:hello_mart/services_screen/electric_bill.dart';
+import 'package:hello_mart/services_screen/flower.dart';
+import 'package:hello_mart/services_screen/food.dart';
+import 'package:hello_mart/services_screen/hello_mart.dart';
+import 'package:hello_mart/services_screen/ice_cream.dart';
+import 'package:hello_mart/services_screen/laundry.dart';
+import 'package:hello_mart/services_screen/saloon.dart';
+import 'package:hello_mart/services_screen/sports_gaming.dart';
+import 'package:hello_mart/services_screen/stationery.dart';
+import 'package:hello_mart/services_screen/token.dart';
 import 'package:hello_mart/utils/const_colors.dart';
 import 'package:hello_mart/utils/const_image_data.dart';
+import 'package:hello_mart/utils/screen_const.dart';
 import 'package:location/location.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -41,6 +55,10 @@ class _HomeScreenState extends State<HomeScreen> {
     var addresses = await Geocoder.local.findAddressesFromCoordinates(coordinates);
     var first = addresses.first;
     return "${first.featureName}, ${first.subLocality}, ${first.adminArea}".toString();
+  }
+
+  _JumpToNextScreen(Widget nextScreen) {
+    Navigator.push(context, MaterialPageRoute(builder: (_) => nextScreen));
   }
 
   @override
@@ -116,12 +134,64 @@ class _HomeScreenState extends State<HomeScreen> {
                         itemBuilder: (BuildContext context, int index) {
                           return GestureDetector(
                             onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (_) => ServiceProvidersScreen(
-                                            serviceName: gridItems[index].title,
-                                          )));
+                              switch (gridItems[index].screenConst) {
+                                case ScreenConst.FOOD:
+                                  _JumpToNextScreen(FoodServiceProviderScreen());
+                                  break;
+                                case ScreenConst.BAKERY:
+                                  _JumpToNextScreen(BakeryServiceProviderScreen());
+                                  break;
+                                case ScreenConst.CARWASH:
+                                  _JumpToNextScreen(CarWashServiceProviderScreen());
+                                  break;
+                                case ScreenConst.DRY_FRUITS:
+                                  _JumpToNextScreen(DryFruitsServiceProviderScreen());
+                                  break;
+                                case ScreenConst.ICE_CREAM:
+                                  _JumpToNextScreen(IceCreamPastriesServiceProviderScreen());
+                                  break;
+                                case ScreenConst.LAUNDRY:
+                                  _JumpToNextScreen(LaundryServiceProviderScreen());
+                                  break;
+                                case ScreenConst.SALOON:
+                                  _JumpToNextScreen(SaloonServiceProviderScreen());
+                                  break;
+                                case ScreenConst.SPORTS_GAMING:
+                                  _JumpToNextScreen(SportsGamingServiceProviderScreen());
+                                  break;
+                                case ScreenConst.STATIONERY:
+                                  _JumpToNextScreen(StationeryServiceProviderScreen());
+                                  break;
+
+                                ///
+                                case ScreenConst.FLOWER:
+                                  _JumpToNextScreen(FlowerServiceProviderScreen());
+                                  break;
+                                case ScreenConst.HELLOMART:
+                                  _JumpToNextScreen(HomeMartServiceProviderScreen());
+                                  break;
+                                case ScreenConst.TOKEN:
+                                  _JumpToNextScreen(TokenServiceProviderScreen());
+                                  break;
+                                case ScreenConst.ELECTRIC_BILL:
+                                  _JumpToNextScreen(ElectricBillServiceProviderScreen());
+                                  break;
+                                case ScreenConst.MOBILE_ELECTRONICS:
+                                  _JumpToNextScreen(StationeryServiceProviderScreen());
+                                  break;
+                                case ScreenConst.MEAT_FISH:
+                                  _JumpToNextScreen(StationeryServiceProviderScreen());
+                                  break;
+                                case ScreenConst.MEDICAL_SERVICES:
+                                  _JumpToNextScreen(StationeryServiceProviderScreen());
+                                  break;
+                                case ScreenConst.PAHRMACY:
+                                  _JumpToNextScreen(StationeryServiceProviderScreen());
+                                  break;
+                                case ScreenConst.VIEWMORE:
+                                  _JumpToNextScreen(StationeryServiceProviderScreen());
+                                  break;
+                              }
                             },
                             child: Container(
                               //color: Colors.primaries[Random().nextInt(12)],

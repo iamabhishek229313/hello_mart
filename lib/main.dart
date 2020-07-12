@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Hello Mart',
           theme: ThemeData(
+            primaryColor: Colors.grey.shade800,
             visualDensity: VisualDensity.adaptivePlatformDensity,
           ),
           home: SplashScreen()),

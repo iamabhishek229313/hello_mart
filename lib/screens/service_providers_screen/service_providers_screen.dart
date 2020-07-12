@@ -1,16 +1,23 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hello_mart/bloc/app_state_bloc.dart';
-import 'package:hello_mart/screens/product_details/product_details.dart';
 import 'package:hello_mart/screens/profile_screen/profile_screen.dart';
+import 'package:hello_mart/services_screen/bakery.dart';
+import 'package:hello_mart/services_screen/car_wash.dart';
+import 'package:hello_mart/services_screen/dry_fruits.dart';
+import 'package:hello_mart/services_screen/food.dart';
+import 'package:hello_mart/services_screen/ice_cream.dart';
+import 'package:hello_mart/services_screen/laundry.dart';
+import 'package:hello_mart/services_screen/saloon.dart';
+import 'package:hello_mart/services_screen/sports_gaming.dart';
+import 'package:hello_mart/services_screen/stationery.dart';
 import 'package:hello_mart/utils/const_colors.dart';
+import 'package:hello_mart/utils/screen_const.dart';
 
 class ServiceProvidersScreen extends StatefulWidget {
   final String serviceName;
-
-  const ServiceProvidersScreen({Key key, this.serviceName}) : super(key: key);
+  final ScreenConst nextScreen;
+  const ServiceProvidersScreen({Key key, @required this.serviceName, @required this.nextScreen}) : super(key: key);
 
   @override
   _ServiceProvidersScreenState createState() => _ServiceProvidersScreenState();
@@ -26,6 +33,10 @@ class _ServiceProvidersScreenState extends State<ServiceProvidersScreen> with Ti
   @override
   void initState() {
     super.initState();
+  }
+
+  _JumpToNextScreen(Widget nextScreen) {
+    Navigator.push(context, MaterialPageRoute(builder: (_) => nextScreen));
   }
 
   @override
@@ -108,12 +119,53 @@ class _ServiceProvidersScreenState extends State<ServiceProvidersScreen> with Ti
                                 margin: const EdgeInsets.only(top: 10.0, left: 8.0, right: 8.0),
                                 child: InkWell(
                                   onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (_) => ProductDetails(
-                                                  serviceProviderName: "Anonmyous",
-                                                )));
+                                    switch (widget.nextScreen) {
+                                      case ScreenConst.FOOD:
+                                        _JumpToNextScreen(FoodProductProviderScreen(
+                                          storeName: "Anonmyous Food Store",
+                                        ));
+                                        break;
+                                      case ScreenConst.BAKERY:
+                                        _JumpToNextScreen(BakeryProductProviderScreen(
+                                          storeName: "Anonmyous Bakery Store",
+                                        ));
+                                        break;
+                                      case ScreenConst.CARWASH:
+                                        _JumpToNextScreen(CarWashProductProviderScreen(
+                                          storeName: "Anonmyous Carwash Store",
+                                        ));
+                                        break;
+                                      case ScreenConst.DRY_FRUITS:
+                                        _JumpToNextScreen(DryFruitsProductProviderScreen(
+                                          storeName: "Anonmyous Dry Fruits Store",
+                                        ));
+                                        break;
+                                      case ScreenConst.ICE_CREAM:
+                                        _JumpToNextScreen(IceCreamPastriesProductProviderScreen(
+                                          storeName: "Anonmyous Ice Cream Store",
+                                        ));
+                                        break;
+                                      case ScreenConst.LAUNDRY:
+                                        _JumpToNextScreen(LaundryProductProviderScreen(
+                                          storeName: "Anonmyous Laundry Store",
+                                        ));
+                                        break;
+                                      case ScreenConst.SALOON:
+                                        _JumpToNextScreen(SaloonProductProviderScreen(
+                                          storeName: "Anonmyous Saloon Store",
+                                        ));
+                                        break;
+                                      case ScreenConst.SPORTS_GAMING:
+                                        _JumpToNextScreen(SportsGamingProductProviderScreen(
+                                          storeName: "Anonmyous Sports Store",
+                                        ));
+                                        break;
+                                      case ScreenConst.STATIONERY:
+                                        _JumpToNextScreen(StationeryProductProviderScreen(
+                                          storeName: "Anonmyous Stationery Store",
+                                        ));
+                                        break;
+                                    }
                                   },
                                   child: Material(
                                     elevation: 5.0,
