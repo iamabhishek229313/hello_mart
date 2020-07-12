@@ -13,6 +13,8 @@ import 'package:hello_mart/services_screen/food.dart';
 import 'package:hello_mart/services_screen/hello_mart.dart';
 import 'package:hello_mart/services_screen/ice_cream.dart';
 import 'package:hello_mart/services_screen/laundry.dart';
+import 'package:hello_mart/services_screen/medical_services.dart';
+import 'package:hello_mart/services_screen/mobile_electronics.dart';
 import 'package:hello_mart/services_screen/saloon.dart';
 import 'package:hello_mart/services_screen/sports_gaming.dart';
 import 'package:hello_mart/services_screen/stationery.dart';
@@ -81,8 +83,16 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         Container(
                             height: screenHeight * 0.2,
+                            width: double.maxFinite,
                             margin: const EdgeInsets.symmetric(vertical: 10.0),
-                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), color: Colors.grey)),
+                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), color: Colors.white),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10.0),
+                              child: Image.asset(
+                                'assets/images/sale_banner.jpg',
+                                fit: BoxFit.cover,
+                              ),
+                            )),
                         Container(
                           margin: const EdgeInsets.symmetric(
                             vertical: 8.0,
@@ -117,8 +127,17 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         Container(
-                            height: screenHeight * 0.12,
-                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), color: Colors.grey)),
+                          height: screenHeight * 0.12,
+                          width: double.maxFinite,
+                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), color: Colors.white),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10.0),
+                            child: Image.asset(
+                              'assets/images/sale_banner2.png',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -176,14 +195,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                 case ScreenConst.ELECTRIC_BILL:
                                   _JumpToNextScreen(ElectricBillServiceProviderScreen());
                                   break;
+                                //
                                 case ScreenConst.MOBILE_ELECTRONICS:
-                                  _JumpToNextScreen(StationeryServiceProviderScreen());
+                                  _JumpToNextScreen(MobileAndElectronicServiceProviderScreen());
                                   break;
                                 case ScreenConst.MEAT_FISH:
                                   _JumpToNextScreen(StationeryServiceProviderScreen());
                                   break;
                                 case ScreenConst.MEDICAL_SERVICES:
-                                  _JumpToNextScreen(StationeryServiceProviderScreen());
+                                  _JumpToNextScreen(MedicalServicesServiceProviderScreen());
                                   break;
                                 case ScreenConst.PAHRMACY:
                                   _JumpToNextScreen(StationeryServiceProviderScreen());

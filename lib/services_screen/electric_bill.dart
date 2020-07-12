@@ -121,8 +121,6 @@ class _ElectricBillServiceProviderScreenState extends State<ElectricBillServiceP
                                     onPressed: () {
                                       if (_fromKey.currentState.validate()) {
                                         // Do something .
-                                        Navigator.push(
-                                            context, MaterialPageRoute(builder: (_) => ElectricBillsScreen()));
                                       } else {
                                         _validate = true;
                                         setState(() {});
@@ -158,7 +156,10 @@ class _ElectricBillServiceProviderScreenState extends State<ElectricBillServiceP
                                       width: 8.0,
                                     ),
                                     InkWell(
-                                      onTap: () {},
+                                      onTap: () {
+                                        Navigator.push(
+                                            context, MaterialPageRoute(builder: (_) => ElectricBillsScreen()));
+                                      },
                                       child: Text(
                                         "Click Here",
                                         style:

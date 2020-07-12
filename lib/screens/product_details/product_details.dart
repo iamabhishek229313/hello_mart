@@ -133,98 +133,95 @@ class _ProductDetailsState extends State<ProductDetails> with TickerProviderStat
                             child: Stack(
                               children: [
                                 ListView.builder(
-                                    itemCount: 10,
+                                    itemCount: 5,
                                     physics: BouncingScrollPhysics(),
                                     itemBuilder: (BuildContext context, int index) {
                                       return Container(
-                                        height: screenHeight * 0.12,
-                                        margin: const EdgeInsets.only(top: 10.0, left: 8.0, right: 8.0),
-                                        child: Material(
-                                          elevation: 5.0,
-                                          shadowColor: Colors.grey.shade50,
-                                          child: Row(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              Expanded(
-                                                child: Row(
-                                                  children: [
-                                                    ClipRRect(
-                                                      borderRadius: BorderRadius.circular(5.0),
-                                                      child: Container(
-                                                        height: screenHeight * 0.12,
-                                                        width: screenHeight * 0.12,
-                                                        decoration: BoxDecoration(
-                                                          borderRadius: BorderRadius.circular(5.0),
-                                                          color: Colors.indigo,
-                                                        ),
+                                        height: screenHeight * 0.10,
+                                        margin: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
+                                        child: Row(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Expanded(
+                                              child: Row(
+                                                children: [
+                                                  ClipRRect(
+                                                    borderRadius: BorderRadius.circular(5.0),
+                                                    child: Container(
+                                                      height: screenHeight * 0.09,
+                                                      width: screenHeight * 0.09,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.circular(5.0),
+                                                        color: Colors.indigo,
                                                       ),
                                                     ),
-                                                    SizedBox(
-                                                      width: MediaQuery.of(context).size.width * 0.1,
-                                                    ),
-                                                    Column(
-                                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                                      children: [
-                                                        Text(
-                                                          "Asus Laptop",
-                                                          maxLines: 2,
-                                                          overflow: TextOverflow.ellipsis,
-                                                          style: TextStyle(
-                                                              color: kGreyDark,
-                                                              fontSize: 18.0,
-                                                              fontWeight: FontWeight.w500),
-                                                        ),
-                                                        Text(
-                                                          "₹" + 999.toString(),
-                                                          maxLines: 1,
-                                                          style: TextStyle(
-                                                              color: kGreyDark,
-                                                              fontSize: 18.0,
-                                                              fontWeight: FontWeight.w500),
-                                                        ),
-                                                        Text(
-                                                          1.toString() + " Kg",
-                                                          maxLines: 1,
-                                                          style: TextStyle(
-                                                              color: kPrimaryGrey,
-                                                              fontSize: 17.0,
-                                                              fontWeight: FontWeight.w400),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ],
-                                                ),
+                                                  ),
+                                                  SizedBox(
+                                                    width: MediaQuery.of(context).size.width * 0.1,
+                                                  ),
+                                                  Column(
+                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                    mainAxisAlignment: MainAxisAlignment.center,
+                                                    children: [
+                                                      Text(
+                                                        "Asus Laptop",
+                                                        maxLines: 2,
+                                                        overflow: TextOverflow.ellipsis,
+                                                        style: TextStyle(
+                                                            color: kGreyDark,
+                                                            fontSize: 18.0,
+                                                            fontWeight: FontWeight.w500),
+                                                      ),
+                                                      Text(
+                                                        "₹" + 999.toString(),
+                                                        maxLines: 1,
+                                                        style: TextStyle(
+                                                            color: kGreyDark,
+                                                            fontSize: 18.0,
+                                                            fontWeight: FontWeight.w500),
+                                                      ),
+                                                      Text(
+                                                        1.toString() + " Kg",
+                                                        maxLines: 1,
+                                                        style: TextStyle(
+                                                            color: kPrimaryGrey,
+                                                            fontSize: 17.0,
+                                                            fontWeight: FontWeight.w400),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
                                               ),
-                                              Container(
-                                                width: MediaQuery.of(context).size.width * 0.3,
-                                                margin: const EdgeInsets.only(top: 10.0),
-                                                padding: const EdgeInsets.symmetric(vertical: 4.0),
-                                                decoration: BoxDecoration(
-                                                    color: kGreyDark, borderRadius: BorderRadius.circular(20.0)),
-                                                child: Row(
-                                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                                  children: [
-                                                    InkWell(
-                                                      onTap: () {},
-                                                      child: Icon(
-                                                        Icons.minimize,
-                                                        color: kPrimaryDark,
-                                                      ),
+                                            ),
+                                            Container(
+                                              width: MediaQuery.of(context).size.width * 0.3,
+                                              margin: const EdgeInsets.only(top: 10.0),
+                                              padding: const EdgeInsets.symmetric(vertical: 4.0),
+                                              decoration: BoxDecoration(
+                                                  color: Colors.grey.shade600,
+                                                  borderRadius: BorderRadius.circular(20.0)),
+                                              child: Row(
+                                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                children: [
+                                                  InkWell(
+                                                    onTap: () {},
+                                                    child: Icon(
+                                                      Icons.minimize,
+                                                      color: kPrimaryDark,
                                                     ),
-                                                    Text("Add"),
-                                                    InkWell(
-                                                      onTap: () {},
-                                                      child: Icon(
-                                                        Icons.minimize,
-                                                        color: kPrimaryDark,
-                                                      ),
-                                                    )
-                                                  ],
-                                                ),
-                                              )
-                                            ],
-                                          ),
+                                                  ),
+                                                  Text("ADD"),
+                                                  InkWell(
+                                                    onTap: () {},
+                                                    child: Icon(
+                                                      Icons.minimize,
+                                                      color: kPrimaryDark,
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+                                            )
+                                          ],
                                         ),
                                       );
                                     }),
