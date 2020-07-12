@@ -13,8 +13,10 @@ import 'package:hello_mart/services_screen/food.dart';
 import 'package:hello_mart/services_screen/hello_mart.dart';
 import 'package:hello_mart/services_screen/ice_cream.dart';
 import 'package:hello_mart/services_screen/laundry.dart';
+import 'package:hello_mart/services_screen/meat_fish.dart';
 import 'package:hello_mart/services_screen/medical_services.dart';
 import 'package:hello_mart/services_screen/mobile_electronics.dart';
+import 'package:hello_mart/services_screen/pharmacy.dart';
 import 'package:hello_mart/services_screen/saloon.dart';
 import 'package:hello_mart/services_screen/sports_gaming.dart';
 import 'package:hello_mart/services_screen/stationery.dart';
@@ -200,13 +202,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                   _JumpToNextScreen(MobileAndElectronicServiceProviderScreen());
                                   break;
                                 case ScreenConst.MEAT_FISH:
-                                  _JumpToNextScreen(StationeryServiceProviderScreen());
+                                  _JumpToNextScreen(MeatFishServiceProviderScreen());
                                   break;
                                 case ScreenConst.MEDICAL_SERVICES:
                                   _JumpToNextScreen(MedicalServicesServiceProviderScreen());
                                   break;
                                 case ScreenConst.PAHRMACY:
-                                  _JumpToNextScreen(StationeryServiceProviderScreen());
+                                  _JumpToNextScreen(PharmacyServiceProviderScreen());
                                   break;
                                 case ScreenConst.VIEWMORE:
                                   _JumpToNextScreen(StationeryServiceProviderScreen());
