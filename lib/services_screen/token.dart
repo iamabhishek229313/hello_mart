@@ -54,15 +54,10 @@ class _TokenServiceProviderScreenState extends State<TokenServiceProviderScreen>
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 8.0,
-                            ),
-                            child: Text(
-                              "Token",
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(fontWeight: FontWeight.bold, color: kGreyDark, fontSize: 28.0),
-                            ),
+                          Text(
+                            "Token",
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(fontWeight: FontWeight.bold, color: kGreyDark, fontSize: 28.0),
                           ),
                           SizedBox(
                             height: screenHeight * 0.05,
