@@ -7,7 +7,7 @@ class SportsGamingServiceProviderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ServiceProvidersScreen(
-      serviceName: "Bakery",
+      serviceName: "Sports & Gaming Accessories",
       nextScreen: ScreenConst.SPORTS_GAMING,
     );
   }

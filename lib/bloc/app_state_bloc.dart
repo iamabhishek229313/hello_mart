@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:hello_mart/screens/cart_screen/confirm_order_Screen.dart';
 import 'package:hello_mart/screens/home_screen.dart';
 import 'package:hello_mart/screens/profile_screen/profile_screen.dart';
 
@@ -32,11 +33,7 @@ class AppStateBloc extends Bloc<AppStateEvent, AppState> {
           yield AppState(1, ProfileScreen());
           break;
         case 2:
-          yield AppState(
-              2,
-              Container(
-                color: Colors.green,
-              ));
+          yield AppState(2, ConfirmOrderScreen());
           break;
       }
     }

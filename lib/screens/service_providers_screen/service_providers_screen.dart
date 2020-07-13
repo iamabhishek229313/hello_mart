@@ -115,7 +115,7 @@ class _ServiceProvidersScreenState extends State<ServiceProvidersScreen> with Ti
                             physics: BouncingScrollPhysics(),
                             itemBuilder: (BuildContext context, int index) {
                               return Container(
-                                height: screenHeight * 0.12,
+                                height: screenHeight * 0.10,
                                 margin: const EdgeInsets.only(top: 10.0, left: 8.0, right: 8.0),
                                 child: InkWell(
                                   onTap: () {
@@ -167,62 +167,57 @@ class _ServiceProvidersScreenState extends State<ServiceProvidersScreen> with Ti
                                         break;
                                     }
                                   },
-                                  child: Material(
-                                    elevation: 5.0,
-                                    borderRadius: BorderRadius.circular(5.0),
-                                    shadowColor: Colors.grey.shade50,
-                                    child: Row(
-                                      children: [
-                                        SizedBox(
-                                          width: MediaQuery.of(context).size.width * 0.01,
+                                  child: Row(
+                                    children: [
+                                      SizedBox(
+                                        width: MediaQuery.of(context).size.width * 0.01,
+                                      ),
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(5.0),
+                                        child: Container(
+                                          height: screenHeight * 0.09,
+                                          width: screenHeight * 0.09,
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(5.0),
+                                            color: Colors.indigo,
+                                          ),
                                         ),
-                                        ClipRRect(
-                                          borderRadius: BorderRadius.circular(5.0),
-                                          child: Container(
-                                            height: screenHeight * 0.12,
-                                            width: screenHeight * 0.12,
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(5.0),
-                                              color: Colors.indigo,
+                                      ),
+                                      SizedBox(
+                                        width: MediaQuery.of(context).size.width * 0.03,
+                                      ),
+                                      Expanded(
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              "KERELA STORE".toUpperCase(),
+                                              maxLines: 1,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: TextStyle(
+                                                  color: kGreyDark, fontSize: 24.0, fontWeight: FontWeight.w500),
                                             ),
-                                          ),
+                                            Text(
+                                              "Perumba SM Complex, Payynpur",
+                                              maxLines: 2,
+                                              style: TextStyle(
+                                                  color: Colors.grey.shade400,
+                                                  fontSize: 15.0,
+                                                  fontWeight: FontWeight.w400),
+                                            ),
+                                            Text(
+                                              "Time : " + "9:00am to 10:00pm",
+                                              maxLines: 1,
+                                              style: TextStyle(
+                                                  color: Colors.grey.shade500,
+                                                  fontSize: 14.0,
+                                                  fontWeight: FontWeight.w500),
+                                            ),
+                                          ],
                                         ),
-                                        SizedBox(
-                                          width: MediaQuery.of(context).size.width * 0.03,
-                                        ),
-                                        Expanded(
-                                          child: Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              Text(
-                                                "KERELA STORE".toUpperCase(),
-                                                maxLines: 1,
-                                                overflow: TextOverflow.ellipsis,
-                                                style: TextStyle(
-                                                    color: kGreyDark, fontSize: 24.0, fontWeight: FontWeight.w500),
-                                              ),
-                                              Text(
-                                                "Perumba SM Complex, Payynpur",
-                                                maxLines: 2,
-                                                style: TextStyle(
-                                                    color: Colors.grey.shade400,
-                                                    fontSize: 15.0,
-                                                    fontWeight: FontWeight.w400),
-                                              ),
-                                              Text(
-                                                "Time : " + "9:00am to 10:00pm",
-                                                maxLines: 1,
-                                                style: TextStyle(
-                                                    color: Colors.grey.shade500,
-                                                    fontSize: 14.0,
-                                                    fontWeight: FontWeight.w500),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               );

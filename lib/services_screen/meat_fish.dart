@@ -6,7 +6,7 @@ class MeatFishServiceProviderScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // This page have no Service Providers Screen.
     return ProductDetails(
-      serviceProviderName: "Hello Mart",
+      serviceProviderName: "Meat/Fish",
       tabNames: [
         "FISH",
         "MEAT",

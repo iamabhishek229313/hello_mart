@@ -21,6 +21,7 @@ import 'package:hello_mart/services_screen/saloon.dart';
 import 'package:hello_mart/services_screen/sports_gaming.dart';
 import 'package:hello_mart/services_screen/stationery.dart';
 import 'package:hello_mart/services_screen/token.dart';
+import 'package:hello_mart/services_screen/view_more.dart';
 import 'package:hello_mart/utils/const_colors.dart';
 import 'package:hello_mart/utils/const_image_data.dart';
 import 'package:hello_mart/utils/screen_const.dart';
@@ -84,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           snapshot: snapshot,
                         ),
                         Container(
-                            height: screenHeight * 0.2,
+                            height: screenHeight * 0.18,
                             width: double.maxFinite,
                             margin: const EdgeInsets.symmetric(vertical: 10.0),
                             decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), color: Colors.white),
@@ -99,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           margin: const EdgeInsets.symmetric(
                             vertical: 8.0,
                           ),
-                          height: screenHeight * 0.06,
+                          height: screenHeight * 0.055,
                           child: TextField(
                             controller: _searchController,
                             cursorColor: kPrimaryGrey,
@@ -129,7 +130,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         Container(
-                          height: screenHeight * 0.12,
+                          height: screenHeight * 0.1,
+                          margin: const EdgeInsets.symmetric(vertical: 8.0),
                           width: double.maxFinite,
                           decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), color: Colors.white),
                           child: ClipRRect(
@@ -147,111 +149,79 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: screenHeight * 0.006,
                   ),
                   Expanded(
-                    child: GridView.builder(
-                        itemCount: gridItems.length,
-                        scrollDirection: Axis.horizontal,
-                        physics: BouncingScrollPhysics(),
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
-                        itemBuilder: (BuildContext context, int index) {
-                          return GestureDetector(
-                            onTap: () {
-                              switch (gridItems[index].screenConst) {
-                                case ScreenConst.FOOD:
-                                  _JumpToNextScreen(FoodServiceProviderScreen());
-                                  break;
-                                case ScreenConst.BAKERY:
-                                  _JumpToNextScreen(BakeryServiceProviderScreen());
-                                  break;
-                                case ScreenConst.CARWASH:
-                                  _JumpToNextScreen(CarWashServiceProviderScreen());
-                                  break;
-                                case ScreenConst.DRY_FRUITS:
-                                  _JumpToNextScreen(DryFruitsServiceProviderScreen());
-                                  break;
-                                case ScreenConst.ICE_CREAM:
-                                  _JumpToNextScreen(IceCreamPastriesServiceProviderScreen());
-                                  break;
-                                case ScreenConst.LAUNDRY:
-                                  _JumpToNextScreen(LaundryServiceProviderScreen());
-                                  break;
-                                case ScreenConst.SALOON:
-                                  _JumpToNextScreen(SaloonServiceProviderScreen());
-                                  break;
-                                case ScreenConst.SPORTS_GAMING:
-                                  _JumpToNextScreen(SportsGamingServiceProviderScreen());
-                                  break;
-                                case ScreenConst.STATIONERY:
-                                  _JumpToNextScreen(StationeryServiceProviderScreen());
-                                  break;
-
-                                ///
-                                case ScreenConst.FLOWER:
-                                  _JumpToNextScreen(FlowerServiceProviderScreen());
-                                  break;
-                                case ScreenConst.HELLOMART:
-                                  _JumpToNextScreen(HomeMartServiceProviderScreen());
-                                  break;
-                                case ScreenConst.TOKEN:
-                                  _JumpToNextScreen(TokenServiceProviderScreen());
-                                  break;
-                                case ScreenConst.ELECTRIC_BILL:
-                                  _JumpToNextScreen(ElectricBillServiceProviderScreen());
-                                  break;
-                                //
-                                case ScreenConst.MOBILE_ELECTRONICS:
-                                  _JumpToNextScreen(MobileAndElectronicServiceProviderScreen());
-                                  break;
-                                case ScreenConst.MEAT_FISH:
-                                  _JumpToNextScreen(MeatFishServiceProviderScreen());
-                                  break;
-                                case ScreenConst.MEDICAL_SERVICES:
-                                  _JumpToNextScreen(MedicalServicesServiceProviderScreen());
-                                  break;
-                                case ScreenConst.PAHRMACY:
-                                  _JumpToNextScreen(PharmacyServiceProviderScreen());
-                                  break;
-                                case ScreenConst.VIEWMORE:
-                                  _JumpToNextScreen(StationeryServiceProviderScreen());
-                                  break;
-                              }
-                            },
-                            child: Container(
-                              //color: Colors.primaries[Random().nextInt(12)],
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Material(
-                                    elevation: 8.0,
-                                    shadowColor: Colors.grey.shade200,
-                                    borderRadius: BorderRadius.circular(10.0),
-                                    child: Container(
-                                      padding: EdgeInsets.all(screenHeight * 0.02),
-                                      height: screenHeight * 0.09,
-                                      width: screenHeight * 0.09,
-                                      decoration:
-                                          BoxDecoration(color: kGreyDark, borderRadius: BorderRadius.circular(10.0)),
-                                      child: Image.asset(
-                                        gridItems[index].imageUrl,
-                                        color: kPrimaryDark,
-                                        fit: BoxFit.scaleDown,
-                                      ),
+                    child: GridView.count(
+                      crossAxisCount: 3,
+                      childAspectRatio: 1.0,
+                      children: List.generate(gridItemsViewLess.length, (index) {
+                        return GestureDetector(
+                          onTap: () {
+                            switch (gridItemsViewLess[index].screenConst) {
+                              case ScreenConst.FOOD:
+                                _JumpToNextScreen(FoodServiceProviderScreen());
+                                break;
+                              case ScreenConst.BAKERY:
+                                _JumpToNextScreen(BakeryServiceProviderScreen());
+                                break;
+                              case ScreenConst.CARWASH:
+                                _JumpToNextScreen(CarWashServiceProviderScreen());
+                                break;
+                              case ScreenConst.DRY_FRUITS:
+                                _JumpToNextScreen(DryFruitsServiceProviderScreen());
+                                break;
+                              case ScreenConst.ICE_CREAM:
+                                _JumpToNextScreen(IceCreamPastriesServiceProviderScreen());
+                                break;
+                              case ScreenConst.STATIONERY:
+                                _JumpToNextScreen(StationeryServiceProviderScreen());
+                                break;
+                              case ScreenConst.HELLOMART:
+                                _JumpToNextScreen(HomeMartServiceProviderScreen());
+                                break;
+                              case ScreenConst.MEAT_FISH:
+                                _JumpToNextScreen(MeatFishServiceProviderScreen());
+                                break;
+                              case ScreenConst.VIEWMORE:
+                                _JumpToNextScreen(ViewMoreServiceProviderScreen());
+                                break;
+                            }
+                          },
+                          child: Container(
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Material(
+                                  elevation: 8.0,
+                                  shadowColor: Colors.grey.shade200,
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  child: Container(
+                                    padding: EdgeInsets.all(screenHeight * 0.02),
+                                    height: screenHeight * 0.09,
+                                    width: screenHeight * 0.09,
+                                    decoration:
+                                        BoxDecoration(color: kGreyDark, borderRadius: BorderRadius.circular(10.0)),
+                                    child: Image.asset(
+                                      gridItemsViewLess[index].imageUrl,
+                                      color: kPrimaryDark,
+                                      fit: BoxFit.scaleDown,
                                     ),
                                   ),
-                                  SizedBox(
-                                    height: screenHeight * 0.01,
-                                  ),
-                                  Text(
-                                    gridItems[index].title,
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(fontWeight: FontWeight.bold, color: kGreyDark),
-                                  )
-                                ],
-                              ),
+                                ),
+                                SizedBox(
+                                  height: screenHeight * 0.01,
+                                ),
+                                Text(
+                                  gridItemsViewLess[index].title,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(fontWeight: FontWeight.bold, color: kGreyDark),
+                                )
+                              ],
                             ),
-                          );
-                        }),
+                          ),
+                        );
+                      }),
+                    ),
                   ),
                 ],
               );

@@ -33,6 +33,7 @@ class _ProductDetailsState extends State<ProductDetails> with TickerProviderStat
   Widget build(BuildContext context) {
     final double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0.0,
