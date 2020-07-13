@@ -482,7 +482,9 @@ class _ConfirmOrderScreenState extends State<ConfirmOrderScreen> {
                             width: MediaQuery.of(context).size.width * 0.6,
                             decoration: BoxDecoration(borderRadius: BorderRadius.circular(50.0)),
                             child: RaisedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.of(context).push(MaterialPageRoute(builder: (_) => PaymentOptionsScreen()));
+                              },
                               elevation: 0.0,
                               color: kPrimaryDark,
                               child: Text(
@@ -500,6 +502,180 @@ class _ConfirmOrderScreenState extends State<ConfirmOrderScreen> {
               ),
             ],
           )
+        ],
+      ),
+    );
+  }
+}
+
+class PaymentOptionsScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final double screenHeight = MediaQuery.of(context).size.height;
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        leading: IconButton(icon: Icon(Icons.arrow_back, color: Colors.black), onPressed: () => Navigator.pop(context)),
+        elevation: 0.0,
+        title: Text(
+          "Payment Options",
+          style: TextStyle(fontWeight: FontWeight.w400, color: Colors.black),
+        ),
+      ),
+      body: ListView(
+        children: [
+          Container(
+            height: screenHeight * 0.05,
+            width: double.maxFinite,
+            color: Colors.grey.shade300,
+            padding: const EdgeInsets.only(left: 20.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  "CREDIT/DEBIT CARDS",
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18.0, color: kGreyDark),
+                )
+              ],
+            ),
+          ),
+          Column(
+            children: [
+              Column(
+                children: [
+                  Container(
+                    height: screenHeight * 0.07,
+                    width: double.maxFinite,
+                    color: Colors.white,
+                    padding: const EdgeInsets.only(left: 20.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Image.asset(
+                          'assets/images/rupay.png',
+                          width: screenHeight * 0.06,
+                          fit: BoxFit.cover,
+                        ),
+                        SizedBox(
+                          width: 10.0,
+                        ),
+                        Text(
+                          "4451-XXXXXXXXXX-6266",
+                          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.0, color: Colors.black),
+                        ),
+                        Spacer(),
+                        Icon(
+                          Icons.assignment_turned_in,
+                          color: Colors.grey.shade200,
+                        ),
+                        SizedBox(
+                          width: 20.0,
+                        )
+                      ],
+                    ),
+                  ),
+                  Divider(
+                    height: 2.0,
+                    thickness: 1.1,
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  Container(
+                    height: screenHeight * 0.07,
+                    width: double.maxFinite,
+                    color: Colors.white,
+                    padding: const EdgeInsets.only(left: 20.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Image.asset(
+                          'assets/images/mastercard.png',
+                          width: screenHeight * 0.06,
+                          fit: BoxFit.cover,
+                        ),
+                        SizedBox(
+                          width: 10.0,
+                        ),
+                        Text(
+                          "4451-XXXXXXXXXX-6266",
+                          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.0, color: Colors.black),
+                        ),
+                        Spacer(),
+                        Icon(
+                          Icons.assignment_turned_in,
+                          color: Colors.grey.shade200,
+                        ),
+                        SizedBox(
+                          width: 20.0,
+                        )
+                      ],
+                    ),
+                  ),
+                  Divider(
+                    height: 2.0,
+                    thickness: 1.1,
+                  ),
+                ],
+              ),
+            ],
+          ),
+          Container(
+            height: screenHeight * 0.05,
+            width: double.maxFinite,
+            color: Colors.grey.shade300,
+            padding: const EdgeInsets.only(left: 20.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  "UPI",
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18.0, color: kGreyDark),
+                )
+              ],
+            ),
+          ),
+          Column(
+            children: [
+              Container(
+                height: screenHeight * 0.07,
+                width: double.maxFinite,
+                color: Colors.white,
+                padding: const EdgeInsets.only(left: 20.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Image.asset(
+                      'assets/images/bhim.jpg',
+                      width: screenHeight * 0.06,
+                      fit: BoxFit.cover,
+                    ),
+                    SizedBox(
+                      width: 10.0,
+                    ),
+                    Text(
+                      "4451-XXXXXXXXXX-6266",
+                      style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.0, color: Colors.black),
+                    ),
+                    Spacer(),
+                    Icon(
+                      Icons.assignment_turned_in,
+                      color: Colors.grey.shade200,
+                    ),
+                    SizedBox(
+                      width: 20.0,
+                    )
+                  ],
+                ),
+              ),
+              Divider(
+                height: 2.0,
+                thickness: 1.1,
+              ),
+            ],
+          ),
         ],
       ),
     );
