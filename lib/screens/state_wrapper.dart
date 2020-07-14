@@ -72,7 +72,7 @@ class _StateWrapperState extends State<StateWrapper> {
                             color: Colors.grey.shade300,
                             boxShadow: [BoxShadow(offset: Offset(1.0, 2.0), color: kPrimaryDark, blurRadius: 3.0)]),
                         height: screenHeight * 0.08,
-                        width: MediaQuery.of(context).size.width * 0.6,
+                        width: MediaQuery.of(context).size.width * 0.7,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -91,7 +91,9 @@ class _StateWrapperState extends State<StateWrapper> {
                             Column(
                               children: [
                                 InkWell(
-                                  onTap: () => _changeScreen(0),
+                                  onTap: () {
+                                    _changeScreen(0);
+                                  },
                                   child: Icon(
                                     Icons.home,
                                     size: screenHeight * 0.065,

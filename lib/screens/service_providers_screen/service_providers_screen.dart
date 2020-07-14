@@ -274,7 +274,9 @@ class _ServiceProvidersScreenState extends State<ServiceProvidersScreen> with Ti
                       Column(
                         children: [
                           InkWell(
-                            onTap: () => _changeScreen(0),
+                            onTap: () {
+                              _changeScreen(0);
+                            },
                             child: Icon(
                               Icons.home,
                               size: screenHeight * 0.065,
