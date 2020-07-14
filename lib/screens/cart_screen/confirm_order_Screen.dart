@@ -500,6 +500,9 @@ class _ConfirmOrderScreenState extends State<ConfirmOrderScreen> {
                   ],
                 ),
               ),
+              SizedBox(
+                height: screenHeight * 0.2,
+              )
             ],
           )
         ],

@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoder/geocoder.dart';
 import 'package:hello_mart/screens/product_details/product_details.dart';
@@ -84,18 +85,35 @@ class _HomeScreenState extends State<HomeScreen> {
                         LocationText(
                           snapshot: snapshot,
                         ),
-                        Container(
-                            height: screenHeight * 0.18,
-                            width: double.maxFinite,
-                            margin: const EdgeInsets.symmetric(vertical: 10.0),
-                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), color: Colors.white),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10.0),
-                              child: Image.asset(
-                                'assets/images/sale_banner.jpg',
-                                fit: BoxFit.cover,
-                              ),
-                            )),
+                        SizedBox(
+                          height: screenHeight * 0.2,
+                          width: double.maxFinite,
+                          child: CarouselSlider(
+                            options: CarouselOptions(
+                                autoPlay: true,
+                                autoPlayInterval: Duration(milliseconds: 2400),
+                                autoPlayAnimationDuration: Duration(milliseconds: 800),
+                                enlargeCenterPage: true),
+                            items: _banners.map((i) {
+                              return Builder(
+                                builder: (BuildContext context) {
+                                  return Container(
+                                      width: MediaQuery.of(context).size.width * 0.8,
+                                      margin: const EdgeInsets.symmetric(vertical: 10.0),
+                                      decoration:
+                                          BoxDecoration(borderRadius: BorderRadius.circular(10.0), color: Colors.white),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(10.0),
+                                        child: Image.asset(
+                                          i,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ));
+                                },
+                              );
+                            }).toList(),
+                          ),
+                        ),
                         Container(
                           margin: const EdgeInsets.symmetric(
                             vertical: 8.0,
@@ -149,78 +167,81 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: screenHeight * 0.006,
                   ),
                   Expanded(
-                    child: GridView.count(
-                      crossAxisCount: 3,
-                      childAspectRatio: 1.0,
-                      children: List.generate(gridItemsViewLess.length, (index) {
-                        return GestureDetector(
-                          onTap: () {
-                            switch (gridItemsViewLess[index].screenConst) {
-                              case ScreenConst.FOOD:
-                                _JumpToNextScreen(FoodServiceProviderScreen());
-                                break;
-                              case ScreenConst.BAKERY:
-                                _JumpToNextScreen(BakeryServiceProviderScreen());
-                                break;
-                              case ScreenConst.CARWASH:
-                                _JumpToNextScreen(CarWashServiceProviderScreen());
-                                break;
-                              case ScreenConst.DRY_FRUITS:
-                                _JumpToNextScreen(DryFruitsServiceProviderScreen());
-                                break;
-                              case ScreenConst.ICE_CREAM:
-                                _JumpToNextScreen(IceCreamPastriesServiceProviderScreen());
-                                break;
-                              case ScreenConst.STATIONERY:
-                                _JumpToNextScreen(StationeryServiceProviderScreen());
-                                break;
-                              case ScreenConst.HELLOMART:
-                                _JumpToNextScreen(HomeMartServiceProviderScreen());
-                                break;
-                              case ScreenConst.MEAT_FISH:
-                                _JumpToNextScreen(MeatFishServiceProviderScreen());
-                                break;
-                              case ScreenConst.VIEWMORE:
-                                _JumpToNextScreen(ViewMoreServiceProviderScreen());
-                                break;
-                            }
-                          },
-                          child: Container(
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Material(
-                                  elevation: 8.0,
-                                  shadowColor: Colors.grey.shade200,
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  child: Container(
-                                    padding: EdgeInsets.all(screenHeight * 0.02),
-                                    height: screenHeight * 0.09,
-                                    width: screenHeight * 0.09,
-                                    decoration:
-                                        BoxDecoration(color: kGreyDark, borderRadius: BorderRadius.circular(10.0)),
-                                    child: Image.asset(
-                                      gridItemsViewLess[index].imageUrl,
-                                      color: kPrimaryDark,
-                                      fit: BoxFit.scaleDown,
+                    child: Container(
+                      color: Colors.white,
+                      child: GridView.count(
+                        crossAxisCount: 3,
+                        childAspectRatio: 1.0,
+                        children: List.generate(gridItemsViewLess.length, (index) {
+                          return GestureDetector(
+                            onTap: () {
+                              switch (gridItemsViewLess[index].screenConst) {
+                                case ScreenConst.FOOD:
+                                  _JumpToNextScreen(FoodServiceProviderScreen());
+                                  break;
+                                case ScreenConst.BAKERY:
+                                  _JumpToNextScreen(BakeryServiceProviderScreen());
+                                  break;
+                                case ScreenConst.CARWASH:
+                                  _JumpToNextScreen(CarWashServiceProviderScreen());
+                                  break;
+                                case ScreenConst.DRY_FRUITS:
+                                  _JumpToNextScreen(DryFruitsServiceProviderScreen());
+                                  break;
+                                case ScreenConst.ICE_CREAM:
+                                  _JumpToNextScreen(IceCreamPastriesServiceProviderScreen());
+                                  break;
+                                case ScreenConst.STATIONERY:
+                                  _JumpToNextScreen(StationeryServiceProviderScreen());
+                                  break;
+                                case ScreenConst.HELLOMART:
+                                  _JumpToNextScreen(HomeMartServiceProviderScreen());
+                                  break;
+                                case ScreenConst.MEAT_FISH:
+                                  _JumpToNextScreen(MeatFishServiceProviderScreen());
+                                  break;
+                                case ScreenConst.VIEWMORE:
+                                  _JumpToNextScreen(ViewMoreServiceProviderScreen());
+                                  break;
+                              }
+                            },
+                            child: Container(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Material(
+                                    elevation: 8.0,
+                                    shadowColor: Colors.grey.shade200,
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    child: Container(
+                                      padding: EdgeInsets.all(screenHeight * 0.02),
+                                      height: screenHeight * 0.09,
+                                      width: screenHeight * 0.09,
+                                      decoration:
+                                          BoxDecoration(color: kGreyDark, borderRadius: BorderRadius.circular(10.0)),
+                                      child: Image.asset(
+                                        gridItemsViewLess[index].imageUrl,
+                                        color: kPrimaryDark,
+                                        fit: BoxFit.scaleDown,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                SizedBox(
-                                  height: screenHeight * 0.01,
-                                ),
-                                Text(
-                                  gridItemsViewLess[index].title,
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(fontWeight: FontWeight.bold, color: kGreyDark),
-                                )
-                              ],
+                                  SizedBox(
+                                    height: screenHeight * 0.01,
+                                  ),
+                                  Text(
+                                    gridItemsViewLess[index].title,
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(fontWeight: FontWeight.bold, color: kGreyDark),
+                                  )
+                                ],
+                              ),
                             ),
-                          ),
-                        );
-                      }),
+                          );
+                        }),
+                      ),
                     ),
                   ),
                 ],
@@ -229,6 +250,13 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
+  List<String> _banners = [
+    "assets/images/sale_banner.jpg",
+    "assets/images/sale_banner3.png",
+    "assets/images/sale_banner4.png",
+    "assets/images/sale_banner5.jpg",
+  ];
 
   Center _loadingState() {
     return Center(

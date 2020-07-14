@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hello_mart/bloc/app_state_bloc.dart';
-import 'package:hello_mart/screens/home_screen.dart';
+import 'package:hello_mart/core/MyClipper_basic.dart';
 import 'package:hello_mart/screens/profile_screen/profile_screen.dart';
 import 'package:hello_mart/utils/const_colors.dart';
 
@@ -22,6 +22,7 @@ class _StateWrapperState extends State<StateWrapper> {
     final double screenHeight = MediaQuery.of(context).size.height;
     final double topPadding = MediaQuery.of(context).padding.top;
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
@@ -72,7 +73,6 @@ class _StateWrapperState extends State<StateWrapper> {
                             boxShadow: [BoxShadow(offset: Offset(1.0, 2.0), color: kPrimaryDark, blurRadius: 3.0)]),
                         height: screenHeight * 0.08,
                         width: MediaQuery.of(context).size.width * 0.6,
-                        // color: Colors.pink,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -122,32 +122,6 @@ class _StateWrapperState extends State<StateWrapper> {
         ),
       ),
     );
-  }
-}
-
-class MyClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    final double rad = size.width * 0.25 / 2;
-    final double deepness = size.height * 0.28;
-    final Offset _controlPoint = Offset(size.width / 2, -deepness);
-    final Offset _endPoint = Offset(size.width / 2 + rad, deepness);
-
-    return Path()
-      ..moveTo(0.0, deepness)
-      ..lineTo(size.width / 2 - rad, deepness)
-      // Have to add beizer there.
-      ..quadraticBezierTo(_controlPoint.dx, _controlPoint.dy, _endPoint.dx, _endPoint.dy)
-      //
-      ..lineTo(size.width / 2 - rad * 2, deepness)
-      ..lineTo(size.width, deepness)
-      ..lineTo(size.width, size.height)
-      ..lineTo(0, size.height);
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) {
-    return oldClipper != this;
   }
 }
 
