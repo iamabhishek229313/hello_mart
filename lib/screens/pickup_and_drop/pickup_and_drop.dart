@@ -126,7 +126,7 @@ class _PickUpAndDropState extends State<PickUpAndDrop> {
                                             TextFormField(
                                               controller: _hospitalController,
                                               autovalidate: _validate,
-                                              validator: (value) => value.isEmpty ? "Enter Hospital Name" : null,
+                                              validator: (value) => value.isEmpty ? "Enter pickup location" : null,
                                               decoration: InputDecoration(
                                                   hintText: "Search pickup location",
                                                   suffixIcon: Icon(
@@ -148,7 +148,7 @@ class _PickUpAndDropState extends State<PickUpAndDrop> {
                                             TextFormField(
                                               controller: _hospitalController,
                                               autovalidate: _validate,
-                                              validator: (value) => value.isEmpty ? "Enter Hospital Name" : null,
+                                              validator: (value) => value.isEmpty ? "Enter delivery address" : null,
                                               decoration: InputDecoration(
                                                   hintText: "Search Delivery location",
                                                   suffixIcon: Icon(
@@ -170,7 +170,7 @@ class _PickUpAndDropState extends State<PickUpAndDrop> {
                                             TextFormField(
                                               controller: _hospitalController,
                                               autovalidate: _validate,
-                                              validator: (value) => value.isEmpty ? "Enter Hospital Name" : null,
+                                              validator: (value) => value.isEmpty ? "Enter package contents" : null,
                                               decoration: InputDecoration(
                                                   hintText: "eg. Food, Documents",
                                                   suffixIcon: Icon(
