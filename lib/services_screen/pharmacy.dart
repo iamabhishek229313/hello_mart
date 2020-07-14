@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hello_mart/bloc/app_state_bloc.dart';
+import 'package:hello_mart/core/MyClipper_basic.dart';
 import 'package:hello_mart/screens/profile_screen/profile_screen.dart';
 import 'package:hello_mart/utils/const_colors.dart';
 
@@ -212,19 +213,57 @@ class _PharmacyServiceProviderScreenState extends State<PharmacyServiceProviderS
                   padding: EdgeInsets.symmetric(horizontal: 10.0),
                   child: Align(
                     alignment: Alignment.bottomCenter,
-                    child: Container(
-                      height: screenHeight * 0.08,
-                      color: Colors.pink,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          IconButton(
-                              icon: Icon(Icons.person),
-                              onPressed: () =>
-                                  Navigator.push(context, MaterialPageRoute(builder: (_) => ProfileScreen()))),
-                          IconButton(icon: Icon(Icons.home), onPressed: () => _changeScreen(0)),
-                          IconButton(icon: Icon(Icons.shopping_cart), onPressed: () => _changeScreen(2))
-                        ],
+                    child: ClipPath(
+                      clipper: MyClipper(),
+                      child: Container(
+                        margin: EdgeInsets.only(bottom: screenHeight * 0.01),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10.0),
+                            color: Colors.grey.shade300,
+                            boxShadow: [BoxShadow(offset: Offset(1.0, 2.0), color: kPrimaryDark, blurRadius: 3.0)]),
+                        height: screenHeight * 0.08,
+                        width: MediaQuery.of(context).size.width,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                IconButton(
+                                    icon: Icon(
+                                      Icons.person,
+                                      size: 32.0,
+                                    ),
+                                    onPressed: () =>
+                                        Navigator.push(context, MaterialPageRoute(builder: (_) => ProfileScreen()))),
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    _changeScreen(0);
+                                  },
+                                  child: Icon(
+                                    Icons.home,
+                                    size: screenHeight * 0.065,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                IconButton(
+                                    icon: Icon(
+                                      Icons.shopping_cart,
+                                      size: 32.0,
+                                    ),
+                                    onPressed: () => _changeScreen(2)),
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -400,19 +439,57 @@ class _RequestForMedicineScreenState extends State<RequestForMedicineScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 10.0),
                   child: Align(
                     alignment: Alignment.bottomCenter,
-                    child: Container(
-                      height: screenHeight * 0.08,
-                      color: Colors.pink,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          IconButton(
-                              icon: Icon(Icons.person),
-                              onPressed: () =>
-                                  Navigator.push(context, MaterialPageRoute(builder: (_) => ProfileScreen()))),
-                          IconButton(icon: Icon(Icons.home), onPressed: () => _changeScreen(0)),
-                          IconButton(icon: Icon(Icons.shopping_cart), onPressed: () => _changeScreen(2))
-                        ],
+                    child: ClipPath(
+                      clipper: MyClipper(),
+                      child: Container(
+                        margin: EdgeInsets.only(bottom: screenHeight * 0.01),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10.0),
+                            color: Colors.grey.shade300,
+                            boxShadow: [BoxShadow(offset: Offset(1.0, 2.0), color: kPrimaryDark, blurRadius: 3.0)]),
+                        height: screenHeight * 0.08,
+                        width: MediaQuery.of(context).size.width,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                IconButton(
+                                    icon: Icon(
+                                      Icons.person,
+                                      size: 32.0,
+                                    ),
+                                    onPressed: () =>
+                                        Navigator.push(context, MaterialPageRoute(builder: (_) => ProfileScreen()))),
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    _changeScreen(0);
+                                  },
+                                  child: Icon(
+                                    Icons.home,
+                                    size: screenHeight * 0.065,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                IconButton(
+                                    icon: Icon(
+                                      Icons.shopping_cart,
+                                      size: 32.0,
+                                    ),
+                                    onPressed: () => _changeScreen(2)),
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -524,19 +601,57 @@ class _TrackRequestedMedicineState extends State<TrackRequestedMedicine> {
                   padding: EdgeInsets.symmetric(horizontal: 10.0),
                   child: Align(
                     alignment: Alignment.bottomCenter,
-                    child: Container(
-                      height: screenHeight * 0.08,
-                      color: Colors.pink,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          IconButton(
-                              icon: Icon(Icons.person),
-                              onPressed: () =>
-                                  Navigator.push(context, MaterialPageRoute(builder: (_) => ProfileScreen()))),
-                          IconButton(icon: Icon(Icons.home), onPressed: () => _changeScreen(0)),
-                          IconButton(icon: Icon(Icons.shopping_cart), onPressed: () => _changeScreen(2))
-                        ],
+                    child: ClipPath(
+                      clipper: MyClipper(),
+                      child: Container(
+                        margin: EdgeInsets.only(bottom: screenHeight * 0.01),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10.0),
+                            color: Colors.grey.shade300,
+                            boxShadow: [BoxShadow(offset: Offset(1.0, 2.0), color: kPrimaryDark, blurRadius: 3.0)]),
+                        height: screenHeight * 0.08,
+                        width: MediaQuery.of(context).size.width,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                IconButton(
+                                    icon: Icon(
+                                      Icons.person,
+                                      size: 32.0,
+                                    ),
+                                    onPressed: () =>
+                                        Navigator.push(context, MaterialPageRoute(builder: (_) => ProfileScreen()))),
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    _changeScreen(0);
+                                  },
+                                  child: Icon(
+                                    Icons.home,
+                                    size: screenHeight * 0.065,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                IconButton(
+                                    icon: Icon(
+                                      Icons.shopping_cart,
+                                      size: 32.0,
+                                    ),
+                                    onPressed: () => _changeScreen(2)),
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
