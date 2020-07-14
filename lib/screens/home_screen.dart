@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoder/geocoder.dart';
+import 'package:hello_mart/screens/pickup_and_drop/pickup_and_drop.dart';
 import 'package:hello_mart/screens/product_details/product_details.dart';
 import 'package:hello_mart/screens/service_providers_screen/service_providers_Screen.dart';
 import 'package:hello_mart/services_screen/bakery.dart';
@@ -147,16 +148,76 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ))),
                           ),
                         ),
-                        Container(
-                          height: screenHeight * 0.1,
-                          margin: const EdgeInsets.symmetric(vertical: 8.0),
-                          width: double.maxFinite,
-                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), color: Colors.white),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(10.0),
-                            child: Image.asset(
-                              'assets/images/sale_banner2.png',
-                              fit: BoxFit.cover,
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (_) => PickUpAndDrop()));
+                          },
+                          child: Container(
+                            height: screenHeight * 0.1,
+                            margin: const EdgeInsets.symmetric(vertical: 8.0),
+                            width: double.maxFinite,
+                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), color: Colors.white),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10.0),
+                              child: Stack(
+                                children: [
+                                  Container(
+                                    height: screenHeight * 0.1,
+                                    width: double.maxFinite,
+                                    child: Image.asset(
+                                      'assets/images/sale_banner2.png',
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Container(
+                                      height: screenHeight * 0.1,
+                                      padding: EdgeInsets.only(left: 10.0),
+                                      width: MediaQuery.of(context).size.width * 0.6,
+                                      // color: Colors.red,
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            "Pickup & Drop",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w500, color: Colors.black, fontSize: 18.0),
+                                          ),
+                                          Row(
+                                            children: [
+                                              Expanded(
+                                                  flex: 7,
+                                                  child: Text(
+                                                    "Just enter the location & the task. We'll get it done",
+                                                    style: TextStyle(
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.black,
+                                                        fontSize: 12.0),
+                                                  )),
+                                              SizedBox(
+                                                width: 2.0,
+                                              ),
+                                              Expanded(
+                                                  child: Container(
+                                                padding: EdgeInsets.all(3.0),
+                                                decoration: BoxDecoration(
+                                                    color: Colors.black, borderRadius: BorderRadius.circular(20.0)),
+                                                child: Icon(
+                                                  Icons.arrow_forward,
+                                                  color: Colors.white,
+                                                  size: 18.0,
+                                                ),
+                                              ))
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         ),
