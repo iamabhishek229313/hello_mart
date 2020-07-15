@@ -16,9 +16,10 @@ class _PickUpAndDropState extends State<PickUpAndDrop> {
 
   bool _validate = false;
 
-  TextEditingController _hospitalController = TextEditingController();
+  TextEditingController _pickupAddresContoller = TextEditingController();
 
-  TextEditingController _doctorController = TextEditingController();
+  TextEditingController _deliveryAddresContoller = TextEditingController();
+  TextEditingController _packageContentsContoller = TextEditingController();
 
   _changeScreen(int index) {
     BlocProvider.of<AppStateBloc>(context).add(ChangeScreen(index));
@@ -125,7 +126,7 @@ class _PickUpAndDropState extends State<PickUpAndDrop> {
                                                   fontSize: 16.0, fontWeight: FontWeight.w400, color: Colors.grey),
                                             ),
                                             TextFormField(
-                                              controller: _hospitalController,
+                                              controller: _pickupAddresContoller,
                                               autovalidate: _validate,
                                               validator: (value) => value.isEmpty ? "Enter pickup location" : null,
                                               decoration: InputDecoration(
@@ -147,7 +148,7 @@ class _PickUpAndDropState extends State<PickUpAndDrop> {
                                                   fontSize: 16.0, fontWeight: FontWeight.w400, color: Colors.grey),
                                             ),
                                             TextFormField(
-                                              controller: _hospitalController,
+                                              controller: _deliveryAddresContoller,
                                               autovalidate: _validate,
                                               validator: (value) => value.isEmpty ? "Enter delivery address" : null,
                                               decoration: InputDecoration(
@@ -169,7 +170,7 @@ class _PickUpAndDropState extends State<PickUpAndDrop> {
                                                   fontSize: 16.0, fontWeight: FontWeight.w400, color: Colors.grey),
                                             ),
                                             TextFormField(
-                                              controller: _hospitalController,
+                                              controller: _packageContentsContoller,
                                               autovalidate: _validate,
                                               validator: (value) => value.isEmpty ? "Enter package contents" : null,
                                               decoration: InputDecoration(

@@ -29,8 +29,8 @@ class _SplashScreenState extends State<SplashScreen> {
           Spacer(),
           Image(
             image: AssetImage('assets/images/logo_png.png'),
-            height: screenHeight * 0.4,
-            width: screenWidth * 0.8,
+            height: screenHeight * 0.33,
+            width: screenWidth * 0.5,
             color: kGreyDark,
             fit: BoxFit.contain,
           ),

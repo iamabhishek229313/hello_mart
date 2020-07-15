@@ -93,7 +93,7 @@ class BottomNavBar extends StatelessWidget {
       child: Align(
         alignment: Alignment.bottomCenter,
         child: Container(
-          margin: EdgeInsets.only(bottom: screenHeight * 0.01),
+          margin: EdgeInsets.only(bottom: screenHeight * 0.005),
           height: screenHeight * 0.08,
           width: MediaQuery.of(context).size.width * 0.7,
           child: Stack(
@@ -104,14 +104,14 @@ class BottomNavBar extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Container(
-                      height: screenHeight * 0.063,
-                      width: MediaQuery.of(context).size.width * 0.63,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
-                          boxShadow: [BoxShadow(offset: Offset(1.0, 2.0), color: kPrimaryDark, blurRadius: 3.0)]),
+                      height: screenHeight * 0.055,
+                      width: MediaQuery.of(context).size.width * 0.60,
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), boxShadow: [
+                        BoxShadow(offset: Offset(1.0, 2.0), color: Colors.grey.shade500, blurRadius: 3.0)
+                      ]),
                     ),
                     SizedBox(
-                      height: screenHeight * 0.005,
+                      height: screenHeight * 0.008,
                     )
                   ],
                 ),
@@ -153,8 +153,8 @@ class BottomNavBar extends StatelessWidget {
                         },
                         child: Image.asset(
                           'assets/icons/home.png',
-                          height: screenHeight * 0.05,
-                          width: screenHeight * 0.06,
+                          height: screenHeight * 0.045,
+                          width: screenHeight * 0.055,
                         ),
                       ),
                     ],

@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'Hello Mart',
+          title: 'Hello Market',
           theme: ThemeData(
             primaryColor: Colors.grey.shade800,
             visualDensity: VisualDensity.adaptivePlatformDensity,

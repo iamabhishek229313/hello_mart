@@ -51,6 +51,7 @@ class _ViewMoreServiceProviderScreenState extends State<ViewMoreServiceProviderS
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
+            padding: EdgeInsets.symmetric(horizontal: screenHeight * 0.01),
             height: screenHeight - topPadding - AppBar().preferredSize.height,
             child: Column(
               children: [
@@ -122,7 +123,7 @@ class _ViewMoreServiceProviderScreenState extends State<ViewMoreServiceProviderS
                                 maxLines: 2,
                                 overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.center,
-                                style: TextStyle(fontWeight: FontWeight.bold, color: kGreyDark),
+                                style: TextStyle(fontWeight: FontWeight.bold, color: kGreyDark, fontSize: 12.0),
                               )
                             ],
                           ),
