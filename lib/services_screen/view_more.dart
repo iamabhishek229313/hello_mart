@@ -2,23 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hello_mart/bloc/app_state_bloc.dart';
 import 'package:hello_mart/core/MyClipper_basic.dart';
+import 'package:hello_mart/core/bottom_nav_bar.dart';
 import 'package:hello_mart/screens/profile_screen/profile_screen.dart';
-import 'package:hello_mart/services_screen/bakery.dart';
-import 'package:hello_mart/services_screen/car_wash.dart';
-import 'package:hello_mart/services_screen/dry_fruits.dart';
 import 'package:hello_mart/services_screen/electric_bill.dart';
 import 'package:hello_mart/services_screen/flower.dart';
-import 'package:hello_mart/services_screen/food.dart';
-import 'package:hello_mart/services_screen/hello_mart.dart';
-import 'package:hello_mart/services_screen/ice_cream.dart';
 import 'package:hello_mart/services_screen/laundry.dart';
-import 'package:hello_mart/services_screen/meat_fish.dart';
 import 'package:hello_mart/services_screen/medical_services.dart';
 import 'package:hello_mart/services_screen/mobile_electronics.dart';
 import 'package:hello_mart/services_screen/pharmacy.dart';
 import 'package:hello_mart/services_screen/saloon.dart';
 import 'package:hello_mart/services_screen/sports_gaming.dart';
-import 'package:hello_mart/services_screen/stationery.dart';
 import 'package:hello_mart/services_screen/token.dart';
 import 'package:hello_mart/utils/const_colors.dart';
 import 'package:hello_mart/utils/const_image_data.dart';
@@ -138,65 +131,7 @@ class _ViewMoreServiceProviderScreenState extends State<ViewMoreServiceProviderS
                     }),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10.0),
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: ClipPath(
-                      clipper: MyClipper(),
-                      child: Container(
-                        margin: EdgeInsets.only(bottom: screenHeight * 0.01),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.0),
-                            color: Colors.grey.shade300,
-                            boxShadow: [BoxShadow(offset: Offset(1.0, 2.0), color: kPrimaryDark, blurRadius: 3.0)]),
-                        height: screenHeight * 0.08,
-                        width: MediaQuery.of(context).size.width,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                IconButton(
-                                    icon: Icon(
-                                      Icons.person,
-                                      size: 32.0,
-                                    ),
-                                    onPressed: () =>
-                                        Navigator.push(context, MaterialPageRoute(builder: (_) => ProfileScreen()))),
-                              ],
-                            ),
-                            Column(
-                              children: [
-                                InkWell(
-                                  onTap: () {
-                                    _changeScreen(0);
-                                  },
-                                  child: Icon(
-                                    Icons.home,
-                                    size: screenHeight * 0.065,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                IconButton(
-                                    icon: Icon(
-                                      Icons.shopping_cart,
-                                      size: 32.0,
-                                    ),
-                                    onPressed: () => _changeScreen(2)),
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                BottomNavBar()
               ],
             ),
           ),

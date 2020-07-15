@@ -20,6 +20,7 @@ class CarWashProductProviderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ProductDetails(serviceProviderName: storeName, tabNames: [
+      "ALL",
       "CAR WASH",
       "DIESEL WASH",
       "CERAMIC",

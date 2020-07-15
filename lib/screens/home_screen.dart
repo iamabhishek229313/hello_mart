@@ -161,12 +161,14 @@ class _HomeScreenState extends State<HomeScreen> {
                               borderRadius: BorderRadius.circular(10.0),
                               child: Stack(
                                 children: [
-                                  Container(
-                                    height: screenHeight * 0.1,
-                                    width: double.maxFinite,
-                                    child: Image.asset(
-                                      'assets/images/sale_banner2.png',
-                                      fit: BoxFit.cover,
+                                  Align(
+                                    child: Container(
+                                      height: screenHeight * 0.1,
+                                      width: double.maxFinite,
+                                      child: Image.asset(
+                                        'assets/images/sale_banner2.png',
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ),
                                   Align(

@@ -20,6 +20,7 @@ class IceCreamPastriesProductProviderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ProductDetails(serviceProviderName: storeName, tabNames: [
+      "ALL",
       "CAKE",
       "PASTRIES",
       "ICECREAM",

@@ -20,6 +20,7 @@ class DryFruitsProductProviderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ProductDetails(serviceProviderName: storeName, tabNames: [
+      "ALL",
       "DATES",
       "CASHEW NUTS",
       "ALMONDS",

@@ -8,6 +8,7 @@ class MeatFishServiceProviderScreen extends StatelessWidget {
     return ProductDetails(
       serviceProviderName: "Meat/Fish",
       tabNames: [
+        "ALL",
         "FISH",
         "MEAT",
       ],

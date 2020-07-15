@@ -20,7 +20,7 @@ List<GridItem> gridItemsViewLess = [
   GridItem('Car Wash', 'assets/icons/car-wash.png', ScreenConst.CARWASH),
   GridItem('Meat/Fish', 'assets/icons/protein.png', ScreenConst.MEAT_FISH),
   GridItem('Dry Fruits', 'assets/icons/almond.png', ScreenConst.DRY_FRUITS),
-  GridItem('View More', 'assets/icons/more_dots.png', ScreenConst.VIEWMORE),
+  GridItem('View More', 'assets/icons/view_more.png', ScreenConst.VIEWMORE),
 ];
 
 List<GridItem> gridItemsViewMore = [

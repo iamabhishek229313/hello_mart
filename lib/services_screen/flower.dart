@@ -8,6 +8,7 @@ class FlowerServiceProviderScreen extends StatelessWidget {
     return ProductDetails(
       serviceProviderName: "Flowers",
       tabNames: [
+        "ALL",
         "CATEGORY 1",
         "CATEGORY 2",
         "CATEGORY 3",

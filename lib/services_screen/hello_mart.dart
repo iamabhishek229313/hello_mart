@@ -8,6 +8,7 @@ class HomeMartServiceProviderScreen extends StatelessWidget {
     return ProductDetails(
       serviceProviderName: "Hello Mart",
       tabNames: [
+        "ALL",
         "VEGETABLES",
         "FRUITS",
         "PROVISIONS",

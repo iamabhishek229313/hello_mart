@@ -20,6 +20,7 @@ class StationeryProductProviderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ProductDetails(serviceProviderName: storeName, tabNames: [
+      "ALL",
       "SCHOOL ITEMS",
       "OFFICE ITEMS",
       "PERSONAL ITEMS",

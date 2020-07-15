@@ -20,6 +20,7 @@ class LaundryProductProviderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ProductDetails(serviceProviderName: storeName, tabNames: [
+      "ALL",
       "JEANS",
       "COTTON",
       "SILK",
