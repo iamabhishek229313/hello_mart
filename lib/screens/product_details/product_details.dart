@@ -236,7 +236,7 @@ class _ProductDetailsState extends State<ProductDetails> with TickerProviderStat
                                                           "BOOK",
                                                           style: TextStyle(
                                                               fontWeight: FontWeight.bold,
-                                                              fontSize: 18.0,
+                                                              fontSize: 16.0,
                                                               color: kPrimaryDark),
                                                         ),
                                                       ],

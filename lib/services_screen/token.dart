@@ -235,7 +235,7 @@ class _TokenServiceProviderScreenState extends State<TokenServiceProviderScreen>
                                         setState(() {});
                                       }
                                     },
-                                    elevation: 2.0,
+                                    elevation: 0.0,
                                     color: kPrimaryDark,
                                     child: Text(
                                       "Book & Pay",

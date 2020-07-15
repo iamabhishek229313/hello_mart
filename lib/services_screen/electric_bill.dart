@@ -128,7 +128,7 @@ class _ElectricBillServiceProviderScreenState extends State<ElectricBillServiceP
                                         setState(() {});
                                       }
                                     },
-                                    elevation: 2.0,
+                                    elevation: 0.0,
                                     color: kPrimaryDark,
                                     child: Text(
                                       "Submit",

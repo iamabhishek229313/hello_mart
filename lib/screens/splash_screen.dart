@@ -32,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
             height: screenHeight * 0.4,
             width: screenWidth * 0.8,
             color: kGreyDark,
-            fit: BoxFit.cover,
+            fit: BoxFit.contain,
           ),
           Spacer(),
           Align(

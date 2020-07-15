@@ -307,7 +307,7 @@ class _RequestForMedicineScreenState extends State<RequestForMedicineScreen> {
                                       setState(() {});
                                     }
                                   },
-                                  elevation: 1.0,
+                                  elevation: 0.0,
                                   color: kPrimaryDark,
                                   child: Text(
                                     "Upload Prescription",
