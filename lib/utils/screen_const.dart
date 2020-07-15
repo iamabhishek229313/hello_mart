@@ -18,3 +18,5 @@ enum ScreenConst {
   MEDICAL_SERVICES,
   MOBILE_ELECTRONICS
 }
+
+enum SelectionType { ADD, BOOK }

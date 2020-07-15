@@ -19,7 +19,7 @@ class SportsGamingProductProviderScreen extends StatelessWidget {
   const SportsGamingProductProviderScreen({Key key, this.storeName}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return ProductDetails(serviceProviderName: storeName, tabNames: [
+    return ProductDetails(serviceProviderName: storeName, selectionType: SelectionType.ADD, tabNames: [
       "ALL",
       "CRICKET ITEMS",
       "FOOTBALL ITEMS",

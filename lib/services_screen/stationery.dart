@@ -19,7 +19,7 @@ class StationeryProductProviderScreen extends StatelessWidget {
   const StationeryProductProviderScreen({Key key, this.storeName}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return ProductDetails(serviceProviderName: storeName, tabNames: [
+    return ProductDetails(serviceProviderName: storeName, selectionType: SelectionType.ADD, tabNames: [
       "ALL",
       "SCHOOL ITEMS",
       "OFFICE ITEMS",

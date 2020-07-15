@@ -19,7 +19,7 @@ class CarWashProductProviderScreen extends StatelessWidget {
   const CarWashProductProviderScreen({Key key, this.storeName}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return ProductDetails(serviceProviderName: storeName, tabNames: [
+    return ProductDetails(serviceProviderName: storeName, selectionType: SelectionType.BOOK, tabNames: [
       "ALL",
       "CAR WASH",
       "DIESEL WASH",

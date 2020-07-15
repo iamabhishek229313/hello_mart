@@ -19,7 +19,7 @@ class DryFruitsProductProviderScreen extends StatelessWidget {
   const DryFruitsProductProviderScreen({Key key, this.storeName}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return ProductDetails(serviceProviderName: storeName, tabNames: [
+    return ProductDetails(serviceProviderName: storeName, selectionType: SelectionType.ADD, tabNames: [
       "ALL",
       "DATES",
       "CASHEW NUTS",

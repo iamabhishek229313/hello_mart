@@ -18,8 +18,11 @@ class _TokenServiceProviderScreenState extends State<TokenServiceProviderScreen>
   bool _validate = false;
 
   TextEditingController _hospitalController = TextEditingController();
+  TextEditingController _patientNameController = TextEditingController();
 
   TextEditingController _doctorController = TextEditingController();
+  TextEditingController _ageController = TextEditingController();
+  TextEditingController _phoneNumberController = TextEditingController();
 
   _changeScreen(int index) {
     BlocProvider.of<AppStateBloc>(context).add(ChangeScreen(index));
@@ -63,7 +66,7 @@ class _TokenServiceProviderScreenState extends State<TokenServiceProviderScreen>
                             style: TextStyle(fontWeight: FontWeight.bold, color: kGreyDark, fontSize: 28.0),
                           ),
                           SizedBox(
-                            height: screenHeight * 0.05,
+                            height: screenHeight * 0.03,
                           ),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,9 +79,6 @@ class _TokenServiceProviderScreenState extends State<TokenServiceProviderScreen>
                                     "Select Hospital",
                                     style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w500, color: kGreyDark),
                                   ),
-                                  SizedBox(
-                                    height: screenHeight * 0.01,
-                                  ),
                                   TextFormField(
                                     controller: _hospitalController,
                                     autovalidate: _validate,
@@ -87,7 +87,7 @@ class _TokenServiceProviderScreenState extends State<TokenServiceProviderScreen>
                                 ],
                               ),
                               SizedBox(
-                                height: screenHeight * 0.05,
+                                height: screenHeight * 0.01,
                               ),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -95,9 +95,6 @@ class _TokenServiceProviderScreenState extends State<TokenServiceProviderScreen>
                                   Text(
                                     "Select Doctor",
                                     style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w500, color: kGreyDark),
-                                  ),
-                                  SizedBox(
-                                    height: screenHeight * 0.01,
                                   ),
                                   TextFormField(
                                     controller: _doctorController,
@@ -107,7 +104,60 @@ class _TokenServiceProviderScreenState extends State<TokenServiceProviderScreen>
                                 ],
                               ),
                               SizedBox(
-                                height: screenHeight * 0.05,
+                                height: screenHeight * 0.01,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Patient Name",
+                                    style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w500, color: kGreyDark),
+                                  ),
+                                  TextFormField(
+                                    controller: _patientNameController,
+                                    autovalidate: _validate,
+                                    validator: (value) => value.isEmpty ? "Enter Patient name" : null,
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: screenHeight * 0.01,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Age",
+                                    style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w500, color: kGreyDark),
+                                  ),
+                                  TextFormField(
+                                    controller: _ageController,
+                                    autovalidate: _validate,
+                                    keyboardType: TextInputType.number,
+                                    validator: (value) => value.isEmpty ? "Enter age" : null,
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: screenHeight * 0.01,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Phone Number",
+                                    style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w500, color: kGreyDark),
+                                  ),
+                                  TextFormField(
+                                    controller: _phoneNumberController,
+                                    autovalidate: _validate,
+                                    keyboardType: TextInputType.number,
+                                    validator: (value) => value.isEmpty ? "Enter your Pickup Address" : null,
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: screenHeight * 0.03,
                               ),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -138,7 +188,7 @@ class _TokenServiceProviderScreenState extends State<TokenServiceProviderScreen>
                                 ],
                               ),
                               SizedBox(
-                                height: screenHeight * 0.05,
+                                height: screenHeight * 0.02,
                               ),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,

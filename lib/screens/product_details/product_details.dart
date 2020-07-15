@@ -1,17 +1,18 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hello_mart/bloc/app_state_bloc.dart';
-import 'package:hello_mart/core/MyClipper_basic.dart';
 import 'package:hello_mart/core/bottom_nav_bar.dart';
-import 'package:hello_mart/screens/profile_screen/profile_screen.dart';
 import 'package:hello_mart/utils/const_colors.dart';
+import 'package:hello_mart/utils/screen_const.dart';
 
 class ProductDetails extends StatefulWidget {
   final String serviceProviderName;
+  final SelectionType selectionType;
   final List<String> tabNames;
-  const ProductDetails({Key key, @required this.serviceProviderName, @required this.tabNames}) : super(key: key);
+
+  const ProductDetails(
+      {Key key, @required this.serviceProviderName, @required this.selectionType, @required this.tabNames})
+      : super(key: key);
 
   @override
   _ProductDetailsState createState() => _ProductDetailsState();
@@ -203,26 +204,43 @@ class _ProductDetailsState extends State<ProductDetails> with TickerProviderStat
                                               decoration: BoxDecoration(
                                                   color: Colors.grey.shade600,
                                                   borderRadius: BorderRadius.circular(20.0)),
-                                              child: Row(
-                                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                                children: [
-                                                  InkWell(
-                                                    onTap: () {},
-                                                    child: Icon(
-                                                      Icons.minimize,
-                                                      color: kPrimaryDark,
+                                              child: widget.selectionType == SelectionType.ADD
+                                                  ? Row(
+                                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                      children: [
+                                                        InkWell(
+                                                          onTap: () {},
+                                                          child: Icon(
+                                                            Icons.minimize,
+                                                            color: kPrimaryDark,
+                                                          ),
+                                                        ),
+                                                        Text(
+                                                          "ADD",
+                                                          style: TextStyle(
+                                                              fontWeight: FontWeight.bold, color: kPrimaryDark),
+                                                        ),
+                                                        InkWell(
+                                                          onTap: () {},
+                                                          child: Icon(
+                                                            Icons.minimize,
+                                                            color: kPrimaryDark,
+                                                          ),
+                                                        )
+                                                      ],
+                                                    )
+                                                  : Row(
+                                                      mainAxisAlignment: MainAxisAlignment.center,
+                                                      children: [
+                                                        Text(
+                                                          "BOOK",
+                                                          style: TextStyle(
+                                                              fontWeight: FontWeight.bold,
+                                                              fontSize: 18.0,
+                                                              color: kPrimaryDark),
+                                                        ),
+                                                      ],
                                                     ),
-                                                  ),
-                                                  Text("ADD"),
-                                                  InkWell(
-                                                    onTap: () {},
-                                                    child: Icon(
-                                                      Icons.minimize,
-                                                      color: kPrimaryDark,
-                                                    ),
-                                                  )
-                                                ],
-                                              ),
                                             )
                                           ],
                                         ),
